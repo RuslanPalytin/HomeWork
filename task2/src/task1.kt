@@ -1,32 +1,38 @@
 fun main(args: Array<String>) {
-    val numberOfPeople = 3
-    var arrayOfNames = arrayOfNulls<String>(numberOfPeople)
-    var arrayOfSurnames = arrayOfNulls<String>(numberOfPeople)
-    var arrayOfAges = arrayOfNulls<Int>(numberOfPeople)
+    val numberPeople = 5
+    var arrayNames = arrayOfNulls<String>(numberPeople)
+    var arraySurnames = arrayOfNulls<String>(numberPeople)
+    var arrayAges = arrayOfNulls<Int>(numberPeople)
 
-    var check: Int
+    var age: Int
+    var name: String
+    var surname: String
     var counter = 0
 
     println("Enter the name, surname and age of the people")
-    while (counter < arrayOfAges.size) {
+    while (counter < arrayAges.size) {
         println("${counter+1} :")
+        print("Name: ")
+        name = readLine().toString()
+        print("Surname: ")
+        surname = readLine().toString()
         print("Age: ")
-        check = readLine()!!.toInt()
-        if (check >= 18) arrayOfAges[counter] = check
-        else{ println("The person is a minor, enter the age again!")
+        age = readLine()!!.toInt()
+        if (age >= 18) {
+            arrayNames[counter] = name
+            arraySurnames[counter] = surname
+            arrayAges[counter] = age
+        } else {
+            println("The person is a minor, enter the age again!")
             continue
         }
-        print("Name: ")
-        arrayOfNames[counter] = readLine()
-        print("Surname: ")
-        arrayOfSurnames[counter] = readLine()
         counter++
     }
 
     counter = 0
 
-    while (counter < arrayOfAges.size) {
-        println("${arrayOfNames[counter]} ${arrayOfSurnames[counter]} an adult and to him(her) ${arrayOfAges[counter]} age")
+    while (counter < arrayAges.size) {
+        println("${arrayNames[counter]} ${arraySurnames[counter]} an adult and to him(her) ${arrayAges[counter]} age")
         counter++
     }
 }
